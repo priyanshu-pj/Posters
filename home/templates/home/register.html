@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Create new account
+{% endblock %}
+
+{% block content %}
+<br>
+    <div style="text-align: center;">
+        <h2>Create new account</h2>
+        <p>Sign up for a new account, fill in the details, try to remember your password.</p>
+    </div>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Create new account">
+    </form>
+    <br>
+    <p>
+        Already have an account? <a href="{% url 'login' %}">Login</a> now.
+    </p>
+{% endblock %}
