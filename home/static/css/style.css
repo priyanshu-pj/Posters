@@ -1,0 +1,10 @@
+.main-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login-submit {
+    color: aliceblue;
+    background-color: aqua;
+    border: none;
+}
