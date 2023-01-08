@@ -2,11 +2,17 @@
     margin-left: auto;
     margin-right: auto;
 }
+.main-container a {
+    text-decoration: none;
+}
 
 #login-submit {
     color: aliceblue;
     background-color: aqua;
     border: none;
+}
+a {
+    text-decoration: none;
 }
 
 /* forms */
@@ -27,19 +33,12 @@ input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
-    background:#efefef;
-    border:0;
+    /* background:#efefef; */
+    border: 1px solid black;
+    border-radius: 5px;
     padding:6px 10px;
     font-size:14px;
 }
-/* input[type=submit], a.button {
-    font-weight:bold;
-    background:#12c064;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase;
-} */
 .errorlist {
     color:#cc0033;
     clear:both;

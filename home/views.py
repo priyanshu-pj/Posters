@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
+from account.models import Profile
 
 @login_required
 def dashboard(request):
@@ -20,6 +21,8 @@ def register(request):
             new_user.set_password(cd['password'])
             new_user.save()
             print('saved user')
+            # Automatically create Profile object for the user
+            Profile.objects.create(user=new_user)
             return render(request, 'home/registered.html', {'new_user': new_user})
     else:
         if request.user.is_authenticated:

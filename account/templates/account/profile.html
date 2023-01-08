@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 {% block title %}
-    Profile
+    {{ user.username }} profile
 {% endblock %}
 {% block content %}
-    This is your profile
+<br>
+    <h2>Your profile page</h2>
+    <p>Edit your profile, and save changes</p>
+    <div class="profile-form">
+        <form action="post">
+            {% csrf_token %}
+            <div id="user-edit-form">
+                {{ user_form.as_p }}
+            </div>
+            <div id="profile-edit-form">
+                {{ profile_form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-dark" value="Save changes">
+        </form>
+    </div>
 {% endblock %}
