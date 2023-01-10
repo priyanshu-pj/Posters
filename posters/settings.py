@@ -128,9 +128,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = 'static/'
 
 # Redirects
-LOGIN_REDIRECT_URL = "dashboard"
-LOGIN_URL = "login"
-LOGOUT_URL = "logged-out"
+LOGIN_REDIRECT_URL = "home:dashboard"
+LOGIN_URL = "home:login"
+LOGOUT_URL = "home:logged-out"
 
 # Media files
 MEDIA_URL = "media/"

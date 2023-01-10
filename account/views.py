@@ -4,11 +4,26 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def profile(request):
-    profile_form = ProfileEditForm()
-    user_form = UserEditForm()
+def edit(request):
     user = request.user
-    return render(request, 'account/profile.html', {
+    if request.method == "POST":
+        profile_form = ProfileEditForm(
+            instance=request.user.profile,
+            data=request.POST,
+            files=request.FILES
+        )
+        user_form = UserEditForm(
+            instance=request.user,
+            data=request.POST,
+        )
+        if profile_form.is_valid() and user_form.is_valid():
+            profile_form.save()
+            user_form.save()
+            
+    else:
+        profile_form = ProfileEditForm(instance=request.user.profile)
+        user_form = UserEditForm(instance=request.user)
+    return render(request, 'account/edit.html', {
         'profile_form': profile_form, 
         'user_form': user_form,
         'user': user
