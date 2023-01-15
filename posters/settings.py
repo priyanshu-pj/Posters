@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
+    # styling Django form
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

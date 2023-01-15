@@ -16,9 +16,15 @@ class UserEditForm(forms.ModelForm):
 
 
 class ProfileEditForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.label_suffix = ""
     class Meta:
         model = Profile
         fields = ['photo']
+        widgets = {
+            'photo': forms.FileInput(attrs={
+                'type': 'file',
+                'name': 'photo',
+                'accept': 'image/*',
+                'id': 'id_photo',
+                'class': 'form-control',
+            })
+        }
