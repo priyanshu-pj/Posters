@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ProfileEditForm, UserEditForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 
 @login_required
@@ -16,9 +17,12 @@ def edit(request):
             instance=request.user,
             data=request.POST,
         )
-        if profile_form.is_valid() and user_form.is_valid():
-            profile_form.save()
-            user_form.save()
+        try:
+            if profile_form.is_valid() and user_form.is_valid():
+                profile_form.save()
+                user_form.save()
+        except:
+            return HttpResponse('Please enter more comman image type')
             
     else:
         profile_form = ProfileEditForm(instance=request.user.profile)
