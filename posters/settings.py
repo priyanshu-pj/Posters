@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
+    'poster.apps.PosterConfig',
     # styling Django form
     'widget_tweaks',
+    'taggit',
 ]
 
 MIDDLEWARE = [
