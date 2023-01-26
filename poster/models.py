@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from django.contrib.auth.models import User
 
 
 class Poster(models.Model):
@@ -10,3 +11,6 @@ class Poster(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     tags = TaggableManager()
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='posters'
+    )

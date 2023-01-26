@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Create new Poster{% endblock %}
+{% block content %}
+    <form method="POST">
+        {{ poster_creation_form.as_p }}
+    </form>
+{% endblock %}
