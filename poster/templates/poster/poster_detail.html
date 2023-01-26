@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ poster.title }}{% endblock %}
+{% block content %}
+<h1>{{ poster.title }}</h1>
+<br>
+<img src="{{ poster.image.url }}" alt="{{ poster.title }}-image">
+<br>
+<p>{{ poster.description }}</p>
+<br>
+<a href="#">{{ poster_creation_form.tags }}</a>
+
+{% endblock %}
