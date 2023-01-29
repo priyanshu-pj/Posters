@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Explore{% endblock %}
+{% block content %}
+    <div class="py-5">
+        <div class="row">
+            {% for poster in posters %}
+                <div class="col">
+                    <a href="{{ poster.get_absolute_url }}">
+                        <img style="
+                            height: 500px; 
+                            width: 400px;
+                            border: 1px solid black;
+                            border-radius: 5px;
+                            "
+                        src="{{ poster.image.url }}">
+                    </a>
+                    <p style="font-weight: bold;">{{ poster.title }}</p>
+                </div> 
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

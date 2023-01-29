@@ -20,7 +20,7 @@ class Poster(models.Model):
     users_like = models.ManyToManyField(
         User, related_name='images_liked', blank=True
     )
-    total_likes = models.PositiveIntegerField(blank=True)
+    total_likes = models.PositiveIntegerField(blank=True, default=0)
 
     class Meta:
         indexes = [

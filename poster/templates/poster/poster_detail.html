@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 {% block title %}{{ poster.title }}{% endblock %}
 {% block content %}
-<h1>{{ poster.title }}</h1>
-<br>
-<img src="{{ poster.image.url }}" alt="{{ poster.title }}-image">
-<br>
-<p>{{ poster.description }}</p>
-<br>
-<a href="#">{{ poster_creation_form.tags }}</a>
-
+    <div class="py-5">
+        <h1>{{ poster.title }}</h1>
+        <a href="{{ poster.image.url }}">
+            <img src="{{ poster.image.url }}" alt="{{ poster.title }}-image"
+            style="                
+                position: absolute;
+                left: 150px;
+                height: 700px;
+                width: 470px;
+                border: 1px solid black;
+            ">
+        </a>
+        Posted on <i>{{ poster.created }}</i> by {{ poster.user.username }}
+        <p class="py-2">{{ poster.description }}</p>
+        <b>Likes </b>{{ poster.total_likes }}
+        <br>
+        <b>Tags</b>
+        {% for tag in poster.tags.all %}
+            {{ tag }}
+        {% endfor %}
+    </div>
 {% endblock %}

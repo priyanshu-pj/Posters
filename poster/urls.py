@@ -4,6 +4,6 @@ from . import views
 app_name = "poster"
 
 urlpatterns = [
-    path('explore/', views.explore, name='explore'),
-    path('create-new-poster/', views.create_poster, name='create_poster'),
+    path('poster-list/', views.poster_list, name='poster_list'),
+    path('poster-detail/<int:id>/<slug:slug>/', views.poster_detail, name='poster_detail'),
 ]
