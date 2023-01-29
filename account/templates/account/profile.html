@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ user.username }} profile
+{% endblock %}
+{% block content %}
+    <div class="py-2">
+        <div id="keep-it-center">
+            <a href="{{ request.user.profile.photo.url }}">
+                <img src="{{ request.user.profile.photo.url }}"
+                    style="
+                    height: 150px; 
+                    width: 150px;
+                    position: relative;
+                    border: 1px solid black;
+                    border-radius: 200px;
+                ">
+            </a>
+        </div>
+        <div id="keep-it-center">
+            <h2>{{ profile.user.username }}</h2>
+        </div>
+        <div id="keep-it-center">
+            <h4>{{ profile.user.first_name }} {{ profile.user.last_name }}</h4>
+        </div>
+        <div id="keep-it-center">
+            <p>{{ profile.bio }}</p>
+        </div>
+        <div class="row">
+            {% for poster in posters %}
+                <div class="col">
+                    <div class="py-3">
+                        <a href="{{ poster.get_absolute_url }}">
+                        <img src="{{ poster.image.url }}" alt="{{ poster.title }}-image"
+                            style="
+                                height: 500px; 
+                                width: 400px;
+                                border: 1px solid black;
+                                border-radius: 5px;">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

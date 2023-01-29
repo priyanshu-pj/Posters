@@ -51,3 +51,9 @@ input, textarea {
     float:left;
     font-size:13px;
 }
+
+#keep-it-center {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}

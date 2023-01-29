@@ -13,7 +13,9 @@
                 border: 1px solid black;
             ">
         </a>
-        Posted on <i>{{ poster.created }}</i> by {{ poster.user.username }}
+        Posted on <i>{{ poster.created }}</i> by <a href="{{ poster.user.profile.get_absolute_url }}">
+            {{ poster.user.username }}
+        </a>
         <p class="py-2">{{ poster.description }}</p>
         <b>Likes </b>{{ poster.total_likes }}
         <br>

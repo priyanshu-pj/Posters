@@ -168,8 +168,8 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg>
+        <a href="{{ request.user.profile.get_absolute_url }}" class="nav-link py-3 border-bottom rounded-0" title="Profile" data-bs-toggle="tooltip" data-bs-placement="right">
+          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Profile"><use xlink:href="#people-circle"/></svg>
         </a>
       </li>
     </ul>

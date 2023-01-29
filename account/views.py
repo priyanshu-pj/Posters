@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProfileEditForm, UserEditForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from .models import Profile
 
 
 @login_required
@@ -31,4 +32,17 @@ def edit(request):
         'profile_form': profile_form, 
         'user_form': user_form,
         'user': user
+    })
+
+
+@login_required
+def profile(request, id):
+    profile = get_object_or_404(
+        Profile,
+        id=id
+    )
+    posters = profile.user.posters.all()
+    return render(request, 'account/profile.html', {
+        'profile': profile,
+        'posters': posters
     })

@@ -1,33 +1,34 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
 {% block title %}
-    {{ user.username }} profile
+    Edit {{ user.username }} 
 {% endblock %}
 {% block content %}
-<br>
-    <div class="edit-content">
-        <div class="image-section">
-            <a href="{{ request.user.profile.photo.url }}">
-                <img src="{{ request.user.profile.photo.url }}"
-                style="
-                position: absolute;
-                left: 150px;
-                height: 300px; 
-                width: 300px;
-                border: 1px solid black;
-                border-radius: 200px;
-                ">
-            </a>
-        </div>
-        <div class="form-section">
-            <h2>Edit profile</h2>
-            <p>Edit your profile, and save changes</p>
-            <form method="post" enctype="multipart/form-data">
-                {{ user_form.as_p }}
-                {{ profile_form.as_p }}
-                {% csrf_token %}
-                <input type="submit" class="btn btn-dark" value="Save changes">
-            </form>
+    <div class="py-5">
+        <div class="edit-content">
+            <div class="image-section">
+                <a href="{{ request.user.profile.photo.url }}">
+                    <img src="{{ request.user.profile.photo.url }}"
+                    style="
+                    position: absolute;
+                    left: 150px;
+                    height: 300px; 
+                    width: 300px;
+                    border: 1px solid black;
+                    border-radius: 200px;
+                    ">
+                </a>
+            </div>
+            <div class="form-section">
+                <h2>Edit profile</h2>
+                <p>Edit your profile, and save changes</p>
+                <form method="post" enctype="multipart/form-data">
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-dark" value="Save changes">
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
