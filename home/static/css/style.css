@@ -57,3 +57,7 @@ input, textarea {
     align-items: center; 
     justify-content: center;
 }
+
+.main-sidebar {
+    padding: 5px;
+}

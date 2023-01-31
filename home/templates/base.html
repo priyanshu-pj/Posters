@@ -14,7 +14,9 @@
 <body>
     <div style="display: flex;">
         {% if request.user.is_authenticated %}
-            {% include 'home/sidebars/index.html' %}
+            <div class="main-sidebar">
+                {% include 'home/sidebars/index.html' %}
+            </div>
         {% else %}
             <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
                 <!-- <svg class="bi pe-none" width="40" height="32"><use xlink:href="#bootstrap"/></svg> -->

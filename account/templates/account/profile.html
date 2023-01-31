@@ -5,8 +5,8 @@
 {% block content %}
     <div class="py-2">
         <div id="keep-it-center">
-            <a href="{{ request.user.profile.photo.url }}">
-                <img src="{{ request.user.profile.photo.url }}"
+            <a href="{{ profile.photo.url }}">
+                <img src="{{ profile.photo.url }}"
                     style="
                     height: 150px; 
                     width: 150px;
@@ -25,10 +25,25 @@
         <div id="keep-it-center">
             <p>{{ profile.bio }}</p>
         </div>
+        {% if request.user.id == profile.user.id %}
+            {% if profile.user.first_name and profile.user.last_name and profile.bio %}
+                <div id="keep-it-center">
+                    <p>
+                    Edit your profile <a href="{% url 'account:edit' %}">here</a>
+                    </p>
+                </div>
+            {% else %}
+                <div id="keep-it-center">
+                    <p>
+                    Complete profile setup <a href="{% url 'account:edit' %}">here</a>
+                    </p>
+                </div>
+            {% endif %}
+        {% endif %}
         <div class="row">
             {% for poster in posters %}
                 <div class="col">
-                    <div class="py-3">
+                    <div class="py-3 px-3">
                         <a href="{{ poster.get_absolute_url }}">
                         <img src="{{ poster.image.url }}" alt="{{ poster.title }}-image"
                             style="
